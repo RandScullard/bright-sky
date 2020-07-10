@@ -1,0 +1,33 @@
+.dots
+{
+	text-align: center;
+	line-height: 7px;
+	margin-bottom: 0.5rem;
+}
+
+.dot
+{
+	display: inline-block;
+	width: 7px;
+	height: 7px;
+	border-radius: 7px;
+	opacity: 0.2;
+	transition: opacity 300ms;
+	background-color: #000;
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: #fff;
+		opacity: 0.4;
+	}
+}
+
+.dot:not(:last-child)
+{
+	margin-right: 7px;
+}
+
+.current
+{
+	opacity: 1.0;
+}

@@ -1,0 +1,29 @@
+@import-normalize;
+
+html
+{
+	height: 100%;
+	font-family: Roboto, sans-serif;
+	font-size: 18px;
+}
+
+body
+{
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: none;
+
+	@media (prefers-color-scheme: dark)
+	{
+		color: #fff;
+		background: #000; 
+	}
+}
+
+#root
+{
+	height: 100%;
+}

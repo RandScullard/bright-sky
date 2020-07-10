@@ -1,0 +1,155 @@
+.root
+{
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding-top: 0.5rem;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.alert
+{
+	text-align: center;
+	margin-bottom: 0.5rem;
+}
+
+.sectionBox
+{
+	padding: 0 0.7rem;
+}
+
+.sectionHdr
+{
+	background-color: #e8e8e8;
+	font-size: 0.8rem;
+	line-height: 2;
+	padding: 0.1rem 0.5rem 0 0.5rem;
+	margin-top: 0.7rem;
+	margin-bottom: 0.7rem;
+	text-transform: uppercase;
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: #333;
+	}
+}
+
+label
+{
+	font-size: 0.8rem;
+	color: #666;
+	text-transform: uppercase;
+
+	@media (prefers-color-scheme: dark)
+	{
+		color: #aaa;
+	}
+}
+
+.flex50
+{
+	display: flex;
+}
+
+.flex50 > *
+{
+	flex-basis: 50%;
+}
+
+.currentTempBox,
+.currentCondBox
+{
+	text-align: center;
+}
+
+.currentTemperature
+{
+	font-size: 3.5rem;
+	line-height: 1;
+	margin-left: 1.2rem;
+}
+
+.currentConditionsIcon
+{
+	display: inline-block;
+	font-size: 3.5rem;
+	line-height: 1;
+
+	svg
+	{
+		width: 3.5rem;
+		height: 3.5rem;
+		vertical-align: top;
+	}
+}
+
+.currentWind,
+.currentHumidity
+{
+	border-top: 1px solid #ddd;
+	padding-top: 0.5rem;
+	margin-top: 0.5rem;
+	text-align: center;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-top-color: #555;
+	}
+}
+
+.todayTempBox,
+.todayCondBox
+{
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.loTemp
+{
+	color: #aaa;
+	border-left: 1px solid #aaa;
+	margin-left: 0.5rem;
+	padding-left: 0.5rem;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-left-color: #555;
+	}
+}
+
+.todayForecastBox
+{
+	border-top: 1px solid #ddd;
+	padding-top: 0.5rem;
+	margin-top: 0.5rem;
+	text-align: center;
+	font-size: 0.9rem;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-top-color: #555;
+	}
+}
+
+.lastUpdated
+{
+	text-align: center;
+	font-size: 0.8rem;
+	margin-top: 1rem;
+	color: #888;
+}
+
+.poweredBy
+{
+	text-align: center;
+	font-size: 0.8rem;
+	margin-top: 0.2rem;
+	margin-bottom: 1rem;
+
+	a
+	{
+		color: #888;
+		text-decoration: none;
+	}
+}

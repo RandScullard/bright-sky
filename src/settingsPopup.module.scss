@@ -1,0 +1,235 @@
+@import "./cleanButton.scss";
+
+.layout
+{
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	user-select: none;
+}
+
+.sectionHdr
+{
+	font-size: 0.8rem;
+	margin: 0.8rem 0.8rem 0.5rem 0.8rem;
+	text-transform: uppercase;
+}
+
+.locations
+{
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-top-color: #555;
+		border-bottom-color: #555;
+	}
+}
+
+.noLocations
+{
+	background-color: #fafafa;
+	padding: 0.5rem 0.8rem;
+	color: #888;
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: #333;
+		color: #aaa;
+	}
+}
+
+.location
+{
+	background-color: #fafafa;
+	padding-left: 0.8rem;
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: #333;
+	}
+}
+
+.locationItems
+{
+	display: flex;
+	align-items: center;
+	position: relative;
+	transition: transform 300ms;
+}
+
+.location:not(:last-child) .locationItems
+{
+	border-bottom: 1px solid #ddd;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-bottom-color: #555;
+	}
+}
+
+$delete-confirm-button-width: 70px;
+
+.location.deleting .locationItems
+{
+	transform: translateX(-$delete-confirm-button-width);
+}
+
+.deleteButton
+{
+	button
+	{
+		@include cleanButton;
+
+		svg circle
+		{
+			fill: #ff3b30;
+		}
+
+		svg rect
+		{
+			fill: #fff;
+		}
+	}
+}
+
+.locationName
+{
+	flex-grow: 1;
+	flex-basis: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0.5rem;
+}
+
+.dragHandle
+{
+	padding-right: 0.8rem;
+
+	svg path
+	{
+		stroke: #c3c3c3;
+
+		@media (prefers-color-scheme: dark)
+		{
+			stroke: #888;
+		}
+	}
+}
+
+.deleteConfirmButton
+{
+	position: absolute;
+	right: 0;
+	z-index: -1;
+	opacity: 0;
+	transition: opacity 300ms step-end, transform 300ms step-end;
+
+	button
+	{
+		appearance: none;
+		background: none;
+		border: none;
+		outline: none;
+		font-family: inherit;
+		font-size: inherit;
+		width: $delete-confirm-button-width;
+		padding: 0.5rem;
+		background-color: #ff3b30;
+		color: #fff;
+	}
+}
+
+.location.deleting .deleteConfirmButton
+{
+	transform: translateX(100%);
+	opacity: 1;
+	transition: opacity 0ms, transform 0ms;
+}
+
+.locationSearch
+{
+	margin: 0 0.5rem 0.6rem 0.5rem;
+	border-radius: 0.4rem;
+	background-color: rgba(0, 0, 0, 0.05);
+	position: relative;
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	input
+	{
+		box-sizing: border-box;
+		width: 100%;
+		color: #000;
+		background-color: transparent;
+		border: none;
+		outline: none;
+		font-size: inherit;
+		font-family: inherit;
+		padding: 0.5rem 0.5rem 0.5rem 2.0rem;
+
+		@media (prefers-color-scheme: dark)
+		{
+			color: #fff;
+		}
+
+		&::placeholder
+		{
+			color: #000;
+
+			@media (prefers-color-scheme: dark)
+			{
+				color: #fff;
+			}
+		}
+	}
+
+	.icon
+	{
+		position: absolute;
+		top: 0.65rem;
+		left: 0.6rem;
+
+		svg circle,
+		svg path
+		{
+			stroke: #444;
+
+			@media (prefers-color-scheme: dark)
+			{
+				stroke: #bbb;
+			}
+		}
+	}
+}
+
+.locationMatch
+{
+	box-sizing: border-box;
+	width: 100%;
+	display: block;
+	appearance: none;
+	background: none;
+	border: none;
+	outline: none;
+	padding: 0 0.5rem 0.5rem 2.0rem;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	text-align: left;
+}
+
+.copyright
+{
+	text-align: center;
+	font-size: 0.8rem;
+	margin: 2rem 0 1rem 0;
+	color: #888;
+}

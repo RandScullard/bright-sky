@@ -1,0 +1,92 @@
+// Since all of the Highcharts CSS styles are global, we can't use a CSS Module to apply our CSS overrides.
+// All of the following styles are used to restyle the Highcharts chart displayed by the WeatherChart component.
+.highcharts-weatherChart
+{
+	.highcharts-background
+	{
+		fill: #fff;
+
+		@media (prefers-color-scheme: dark)
+		{
+			fill: #000;
+		}
+	}
+
+	.highcharts-xaxis-grid .highcharts-grid-line
+	{
+		stroke-width: 1px;
+		stroke: #e0e0e0;
+
+		@media (prefers-color-scheme: dark)
+		{
+			stroke: #555;
+		}
+	}
+
+	.highcharts-yaxis-grid .highcharts-grid-line
+	{
+		stroke-width: 1px;
+		stroke: #f4f4f4;
+
+		@media (prefers-color-scheme: dark)
+		{
+			stroke: #333;
+		}
+	}
+
+	.highcharts-yaxis-labels text
+	{
+		fill: #aaa;
+	}
+
+	// Disable the dimming of inactive series.
+	.highcharts-series-inactive
+	{
+		opacity: 1;
+	}
+
+	.highcharts-precip-series
+	{
+		.highcharts-area
+		{
+			fill-opacity: 0.3;
+		}
+
+		// Zone 0 is the past, Zone 1 is the future...
+
+		.highcharts-zone-graph-0
+		{
+			stroke: #b0e2f4;
+
+			@media (prefers-color-scheme: dark)
+			{
+				stroke: #29647a;
+			}
+		}
+
+		.highcharts-zone-graph-1
+		{
+			stroke: #45abd0;
+		}
+	}
+
+	.highcharts-temperature-series
+	{
+		// Zone 0 is the past, Zone 1 is the future...
+
+		.highcharts-zone-graph-0
+		{
+			stroke: #e4a8ab;
+
+			@media (prefers-color-scheme: dark)
+			{
+				stroke: #801614;
+			}
+		}
+
+		.highcharts-zone-graph-1
+		{
+			stroke: #cb2320;
+		}
+	}
+}

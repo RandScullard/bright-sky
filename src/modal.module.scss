@@ -1,0 +1,130 @@
+@import "./cleanButton.scss";
+
+.blocker
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1000;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 1rem 0 0 0;
+	box-sizing: border-box;
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+}
+
+.frame
+{
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	height: 100%;
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	overflow: hidden;
+	border-radius: 0.5rem 0.5rem 0 0;
+	box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+
+	@media (prefers-color-scheme: dark)
+	{
+		background-color: #222;
+	}
+}
+
+.titleBar
+{
+	border-bottom: 1px solid #ddd;
+	position: relative;
+	user-select: none;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-bottom-color: #555;
+	}
+}
+
+.closeButton
+{
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+
+	button
+	{
+		@include cleanButton;
+		padding: 0.9rem 1rem;
+
+		svg path
+		{
+			stroke: #909090;
+		}
+	}
+}
+
+.title
+{
+	text-align: center;
+	padding: 0.9rem 3rem;
+}
+
+.body
+{
+	flex-grow: 1;
+	flex-basis: 100%;
+	overflow: hidden;
+}
+
+// The following classes define the behavior of the CSSTransition that animates the modal on show and hide.
+// The blocker is faded in on show and out on hide, and the frame slides up from the bottom of the screen on show
+// and slides back down again on hide.
+
+.enter.blocker
+{
+	opacity: 0;
+}
+
+.enterActive.blocker
+{
+	opacity: 1;
+	transition: opacity 300ms;
+}
+
+.exit.blocker
+{
+	opacity: 1;
+}
+
+.exitActive.blocker
+{
+	opacity: 0;
+	transition: opacity 300ms;
+}
+
+.enter .frame
+{
+	transform: translateY(100%);
+}
+
+.enterActive .frame
+{
+	transform: translateY(0);
+	transition: transform 300ms;
+}
+
+.exit .frame
+{
+	transform: translateY(0);
+}
+
+.exitActive .frame
+{
+	transform: translateY(100%);
+	transition: transform 300ms;
+}

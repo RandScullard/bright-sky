@@ -1,0 +1,68 @@
+.chartScroller
+{
+	width: 100%;
+	overflow-x: auto;
+	display: flex;
+}
+
+.chartScroller > *
+{
+	float: left;
+	margin: 0 auto;
+}
+
+.chartHeaders
+{
+	display: flex;
+}
+
+.day
+{
+	flex-grow: 1;
+	flex-basis: 1px;
+	text-align: center;
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	margin-top: 0.2rem;
+	margin-bottom: 0.3rem;
+}
+
+.precip
+{
+	color: #008fbf;
+	font-size: 0.7rem;
+}
+
+.dayNum
+{
+	color: #aaa;
+}
+
+.conditionsIcon
+{
+	display: inline-block;
+	font-size: 1.5rem;
+	line-height: 1;
+	margin-top: 0.2rem;
+	margin-bottom: 0.4rem;
+
+	svg
+	{
+		width: 1.5rem;
+		height: 1.5rem;
+		vertical-align: top;
+	}
+}
+
+.loTemp
+{
+	color: #aaa;
+	border-left: 1px solid #aaa;
+	margin-left: 0.2rem;
+	padding-left: 0.2rem;
+
+	@media (prefers-color-scheme: dark)
+	{
+		border-left-color: #555;
+	}
+}

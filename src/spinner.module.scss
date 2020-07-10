@@ -1,0 +1,58 @@
+@mixin spinner(
+	$size: 42px,
+	$lineLength: 12px,
+	$lineWidth: 4px,
+	$numBars: 12)
+{
+	$duration: 0.67s;
+
+	$holeSize: $size - ($lineLength * 2);
+	$centerOffset: ($holeSize - $lineLength) / 2;
+
+	width: $size;
+	height: $size;
+
+	div
+	{
+		position: absolute;
+		left: ($size - $lineWidth) / 2;
+		top: $lineLength + $centerOffset;
+		width: $lineWidth;
+		height: $lineLength;
+		border-radius: $lineLength;
+		background: #666;
+		opacity: 0.3;
+	}
+
+	@keyframes fade
+	{
+		from { opacity: 1.0 }
+		to   { opacity: 0.3 }
+	}
+
+	@for $i from 1 through $numBars
+	{
+		div:nth-child(#{$i})
+		{
+			transform: rotate(#{($i - 1) * (360 / $numBars)}deg) translate(0, -($lineLength + $centerOffset));
+			animation: fade $duration infinite (($duration / $numBars) * ($i - 1));
+		}
+	}
+
+	// Hide any existing bar elements past the number of bars we were told to animate.
+	div:nth-child(1n+#{$numBars + 1})
+	{
+		display: none;
+	}
+}
+
+.spinner
+{
+	@include spinner();
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999999;
+}

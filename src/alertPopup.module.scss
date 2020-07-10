@@ -1,0 +1,78 @@
+.layout
+{
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	padding-top: 0.5rem;
+}
+
+.body
+{
+	box-sizing: border-box;
+	height: 100%;
+	overflow: auto;
+	font-size: 0.9rem;
+	line-height: 1.3;
+	padding: 0.2rem 0.8rem 0.8rem 0.8rem;
+}
+
+.swipe
+{
+	flex-grow: 1;
+	flex-basis: 100%;
+	overflow: hidden;
+	visibility: hidden;
+	position: relative;
+}
+
+.swipeWrap
+{
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+
+	> div
+	{
+		float: left;
+		width: 100%;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+	}
+}
+
+.times
+{
+	border-spacing: 0;
+	margin-bottom: 0.6rem;
+
+	td
+	{
+		padding: 0 0.3rem 0.2rem 0;
+	}
+}
+
+.moreInfo
+{
+	text-align: center;
+	margin-top: 0.8rem;
+
+	a
+	{
+		display: inline-block;
+		text-decoration: none;
+		color: #007aff;
+		border: 1px solid #007aff;
+		border-radius: 0.3rem;
+		padding: 0.2rem 0.5rem;
+
+		@media (prefers-color-scheme: dark)
+		{
+			color: #4693ff;
+			border-color: #4693ff;
+		}
+	}
+}
