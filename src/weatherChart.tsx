@@ -5,7 +5,6 @@ import HighchartsReact from "highcharts-react-official";
 import moment from "moment-timezone";
 import { Location } from "./types";
 import IconWeather from "./iconWeather";
-import "./weatherChart.scss";
 import styles from "./weatherChart.module.scss";
 
 interface Props extends React.Props<any>
@@ -45,7 +44,7 @@ class WeatherChart extends React.Component<Props, State>
 				margin: [5, 0, 5, 0],
 				animation: false,
 				styledMode: true,
-				className: "highcharts-weatherChart",
+				className: styles.highchartsWeatherChart,
 			},
 			title: { text: undefined },
 			tooltip: { enabled: false },
@@ -95,7 +94,7 @@ class WeatherChart extends React.Component<Props, State>
 			series: [{
 				type: "areaspline",
 				name: "Precipitation",
-				className: "highcharts-precip-series",
+				className: styles.precipSeries,
 				yAxis: 1,
 				// Zones are used to render the future in a different color from the past:
 				zoneAxis: "x",
@@ -104,7 +103,7 @@ class WeatherChart extends React.Component<Props, State>
 			},{
 				type: "spline",
 				name: "Temperature",
-				className: "highcharts-temperature-series",
+				className: styles.temperatureSeries,
 				// Zones are used to render the future in a different color from the past:
 				zoneAxis: "x",
 				zones: [ { value: moment().valueOf() } ],

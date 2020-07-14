@@ -66,3 +66,96 @@
 		border-left-color: #555;
 	}
 }
+
+// All of the following styles are used to restyle the Highcharts chart displayed by the WeatherChart component.
+// Note that Highcharts uses global classnames, so we must use the :global prefix when referring to them.
+.highchartsWeatherChart
+{
+	:global .highcharts-background
+	{
+		fill: #fff;
+
+		@media (prefers-color-scheme: dark)
+		{
+			fill: #000;
+		}
+	}
+
+	:global .highcharts-xaxis-grid .highcharts-grid-line
+	{
+		stroke-width: 1px;
+		stroke: #e0e0e0;
+
+		@media (prefers-color-scheme: dark)
+		{
+			stroke: #555;
+		}
+	}
+
+	:global .highcharts-yaxis-grid .highcharts-grid-line
+	{
+		stroke-width: 1px;
+		stroke: #f4f4f4;
+
+		@media (prefers-color-scheme: dark)
+		{
+			stroke: #333;
+		}
+	}
+
+	:global .highcharts-yaxis-labels text
+	{
+		fill: #aaa;
+	}
+
+	// Disable the dimming of inactive series.
+	:global .highcharts-series-inactive
+	{
+		opacity: 1;
+	}
+
+	.precipSeries
+	{
+		:global .highcharts-area
+		{
+			fill-opacity: 0.3;
+		}
+
+		// Zone 0 is the past, Zone 1 is the future...
+
+		:global .highcharts-zone-graph-0
+		{
+			stroke: #b0e2f4;
+
+			@media (prefers-color-scheme: dark)
+			{
+				stroke: #29647a;
+			}
+		}
+
+		:global .highcharts-zone-graph-1
+		{
+			stroke: #45abd0;
+		}
+	}
+
+	.temperatureSeries
+	{
+		// Zone 0 is the past, Zone 1 is the future...
+
+		:global .highcharts-zone-graph-0
+		{
+			stroke: #e4a8ab;
+
+			@media (prefers-color-scheme: dark)
+			{
+				stroke: #801614;
+			}
+		}
+
+		:global .highcharts-zone-graph-1
+		{
+			stroke: #cb2320;
+		}
+	}
+}
