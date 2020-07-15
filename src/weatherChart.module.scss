@@ -71,6 +71,8 @@
 // Note that Highcharts uses global classnames, so we must use the :global prefix when referring to them.
 .highchartsWeatherChart
 {
+	font-family: inherit;
+
 	:global .highcharts-background
 	{
 		fill: #fff;
