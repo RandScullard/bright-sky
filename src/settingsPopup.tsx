@@ -1,7 +1,7 @@
 import React from "react";
 import update from "immutability-helper";
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
-import { uuid } from "uuidv4";
+import { v4 as uuidv4 } from "uuid";
 import { Location } from "./types";
 import config from "./config";
 import Modal from "./modal";
@@ -276,7 +276,7 @@ class SettingsPopup extends React.Component<Props, State>
 			// ties the autocomplete and details calls together for billing purposes.
 			// (See the topic on Session Tokens in the Google Places API documentation.)
 			if(this.m_googleSessionToken === "")
-				this.m_googleSessionToken = uuid();
+				this.m_googleSessionToken = uuidv4();
 
 			// Start a fetch for autocomplete matches for the text the user entered. Wait until it completes.
 			let resp = await window.fetch(`${config.placeAutocompleteUrl}?sessiontoken=${this.m_googleSessionToken}&input=${this.m_fetchingAddLocationText}&types=geocode${latlong}`);
@@ -353,7 +353,7 @@ class SettingsPopup extends React.Component<Props, State>
 
 		try
 		{
-			let position = await new Promise<Position>((resolve, reject) => navigator.geolocation.getCurrentPosition(pos => resolve(pos), err => reject(err)));
+			let position = await new Promise<GeolocationPosition>((resolve, reject) => navigator.geolocation.getCurrentPosition(pos => resolve(pos), err => reject(err)));
 			this.m_latitude = position.coords.latitude;
 			this.m_longitude = position.coords.longitude;
 		}

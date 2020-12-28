@@ -4,7 +4,7 @@ import WebFont from "webfontloader";
 import "./fonts/Roboto.css";
 import "./index.scss";
 import App from "./app";
-import * as serviceWorker from "./serviceWorker";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 // Delay rendering the app until the web fonts have either loaded or failed to load.
 // This avoids the Flash of Unstyled Text (FOUT) and prevents our React components from
@@ -19,4 +19,4 @@ WebFont.load({
 	inactive: render,
 });
 
-serviceWorker.register();
+serviceWorkerRegistration.register();
