@@ -293,7 +293,7 @@ class SettingsPopup extends React.Component<Props, State>
 			// We're done fetching.
 			this.m_fetchingAddLocationText = "";
 		}
-		catch(err)
+		catch(err: any)
 		{
 			this.m_fetchingAddLocationText = "";
 			window.alert(err.message);
@@ -339,7 +339,7 @@ class SettingsPopup extends React.Component<Props, State>
 
 			this.setState(newState);
 		}
-		catch(err)
+		catch(err: any)
 		{
 			window.alert(err.message);
 		}
@@ -357,7 +357,7 @@ class SettingsPopup extends React.Component<Props, State>
 			this.m_latitude = position.coords.latitude;
 			this.m_longitude = position.coords.longitude;
 		}
-		catch(err)
+		catch(err: any)
 		{
 			window.alert(err.message);
 		}

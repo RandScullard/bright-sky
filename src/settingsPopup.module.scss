@@ -84,6 +84,8 @@ $delete-confirm-button-width: 70px;
 	{
 		@include cleanButton;
 
+		line-height: 1;
+
 		svg circle
 		{
 			fill: #ff3b30;

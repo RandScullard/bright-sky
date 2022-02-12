@@ -279,7 +279,7 @@ class App extends React.Component<Props, State>
 
 			return this.setPersistState(newPersistState);
 		}
-		catch(err)
+		catch(err: any)
 		{
 			window.alert(err.message);
 		}
