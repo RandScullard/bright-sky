@@ -1,6 +1,6 @@
 import React from "react";
 import update from "immutability-helper";
-import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext, DropResult, Droppable, Draggable } from "@react-forked/dnd";
 import { v4 as uuidv4 } from "uuid";
 import { Location } from "./types";
 import config from "./config";

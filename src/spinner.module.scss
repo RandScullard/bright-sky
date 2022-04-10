@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin spinner(
 	$size: 42px,
 	$lineLength: 12px,
@@ -7,7 +9,7 @@
 	$duration: 0.67s;
 
 	$holeSize: $size - ($lineLength * 2);
-	$centerOffset: ($holeSize - $lineLength) / 2;
+	$centerOffset: math.div($holeSize - $lineLength, 2);
 
 	width: $size;
 	height: $size;
@@ -15,7 +17,7 @@
 	div
 	{
 		position: absolute;
-		left: ($size - $lineWidth) / 2;
+		left: math.div($size - $lineWidth, 2);
 		top: $lineLength + $centerOffset;
 		width: $lineWidth;
 		height: $lineLength;
@@ -34,8 +36,8 @@
 	{
 		div:nth-child(#{$i})
 		{
-			transform: rotate(#{($i - 1) * (360 / $numBars)}deg) translate(0, -($lineLength + $centerOffset));
-			animation: fade $duration infinite (($duration / $numBars) * ($i - 1));
+			transform: rotate(#{($i - 1) * math.div(360, $numBars)}deg) translate(0, -($lineLength + $centerOffset));
+			animation: fade $duration infinite (math.div($duration, $numBars) * ($i - 1));
 		}
 	}
 
