@@ -12,6 +12,8 @@ import IconSettings from "./iconSettings";
 import Spinner from "./spinner";
 import styles from "./app.module.scss";
 
+const PERSIST_STATE_KEY = "bright-sky-state";
+
 // Whenever there is a breaking change to the persistent state, increment this version number.
 // This will cause the code to ignore the old persistent state and start fresh with defaults.
 const PERSIST_STATE_VERSION = 21;
@@ -23,7 +25,7 @@ interface PersistState
 	currLocation: number;
 }
 
-interface Props extends React.Props<any>
+interface Props
 {
 }
 
@@ -46,7 +48,7 @@ class App extends React.Component<Props, State>
 
 		let persistState: PersistState | null = null;
 
-		let json = window.localStorage.getItem("app_persistState");
+		let json = window.localStorage.getItem(PERSIST_STATE_KEY);
 		if(json)
 			persistState = JSON.parse(json);
 
@@ -501,7 +503,7 @@ class App extends React.Component<Props, State>
 		// reasons, cost reasons (hits to the API cost money), and to support offline use.
 		// Basically, any time the page loads, the user should see the same thing they saw
 		// last time they used it (until we fetch new weather data, of course).
-		window.localStorage.setItem("app_persistState", JSON.stringify(newPersistState));
+		window.localStorage.setItem(PERSIST_STATE_KEY, JSON.stringify(newPersistState));
 
 		// Allow the caller to use await on this.
 		return new Promise<void>(resolve => this.setState({ persistState: newPersistState }, resolve));

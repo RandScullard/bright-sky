@@ -8,7 +8,7 @@ import IconWeather from "./iconWeather";
 import WeatherChart from "./weatherChart";
 import styles from "./weatherPage.module.scss";
 
-interface Props extends React.Props<any>
+interface Props
 {
 	location: Location;
 }

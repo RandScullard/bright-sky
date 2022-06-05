@@ -6,7 +6,7 @@ import Modal from "./modal";
 import PageDots from "./pageDots";
 import styles from "./alertPopup.module.scss";
 
-interface Props extends React.Props<any>
+interface Props
 {
 	weather: Weather;
 }

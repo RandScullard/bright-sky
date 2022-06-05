@@ -7,7 +7,7 @@ import { Location } from "./types";
 import IconWeather from "./iconWeather";
 import styles from "./weatherChart.module.scss";
 
-interface Props extends React.Props<any>
+interface Props
 {
 	location: Location;
 }
@@ -50,6 +50,7 @@ class WeatherChart extends React.Component<Props, State>
 			tooltip: { enabled: false },
 			legend: { enabled: false },
 			credits: { enabled: false },
+			accessibility: { enabled: false },
 			plotOptions: {
 				series: {
 					animation: false,

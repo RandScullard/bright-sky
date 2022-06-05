@@ -16,7 +16,7 @@ interface AutocompleteMatch
 	place_id: string;
 }
 
-interface Props extends React.Props<any>
+interface Props
 {
 	initialLocations: Location[];
 	onSave: (locations: Location[]) => void;

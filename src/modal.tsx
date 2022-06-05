@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import styles from "./modal.module.scss";
 import IconClose from "./iconClose";
 
-interface Props extends React.Props<any>
+interface Props
 {
 	title: string;
 	onShow?: () => void;
